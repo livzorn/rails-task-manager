@@ -1,16 +1,11 @@
 class TasksController < ApplicationController
   def index
     @tasks = Task.all
-    if params[:completed] == true
-      @completed = '☑'
-    else
-      @completed = '☐'
-    end
   end
 
   def show
     @task = Task.find(params[:id])
-    if params[:completed] == true
+    if @task.completed == true
       @completed = '☑ This task has been completed.'
     else
       @completed = '☐ This task has not yet been completed.'
@@ -45,6 +40,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :details)
+    params.require(:task).permit(:title, :details, :completed)
   end
 end

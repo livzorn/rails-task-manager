@@ -6,7 +6,7 @@
 <br>
 <%= link_to 'Edit this task', edit_path %>
 <br>
-<%= link_to "Delete #{@task.title}",
+<%= link_to "Delete this task",
             task_path(@task),
             method: :delete,
             data: { confirm: "Are you sure?" } %>
